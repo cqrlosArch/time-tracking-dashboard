@@ -35,6 +35,7 @@ const init = () => {
       .setAttribute('class', 'card card--' + classCard);
     template.querySelector('.card__name').textContent = item.title;
     template.querySelector('.card__img').src = imageCard;
+    template.querySelector('.card__img').alt = "icon-ellipsis";
 
     template.querySelector('.card__title').textContent =
       item.timeframes['weekly'].current + 'hrs';
