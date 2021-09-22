@@ -1,0 +1,72 @@
+@use '../utilities/variables' as c;
+@use '../utilities/mixins' as mx;
+
+.profile {
+  border-radius: 12px;
+  background-color: c.$card-component-background;
+  @include mx.point('sm') {
+    grid-row: span 2;
+    height: 100%;
+  }
+
+  &__header {
+    border-radius: 12px;
+    width: 100%;
+    top: -50%;
+    padding: 2rem;
+    background-color: c.$profile-card-background;
+    display: grid;
+    grid-template-columns: 30% auto;
+    align-items: center;
+    justify-content: center;
+    @include mx.point('sm') {
+      position: relative;
+      grid-template-columns: 1fr;
+      top: -11%;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 60px;
+    height: auto;
+    grid-row: span 2;
+    border-radius: 50%;
+    border: 2px solid c.$color-white;
+  }
+  &__text {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: c.$color-secondary-text;
+  }
+  &__title {
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 300;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+
+    @include mx.point('sm') {
+      flex-direction: column;
+      padding: 0 1.5rem;
+    }
+  }
+
+  @include mx.point('sm') {
+    &__item {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__button {
+    appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: c.$card-component-background-hover;
+  }
+}

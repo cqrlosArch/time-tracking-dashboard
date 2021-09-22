@@ -1,0 +1,85 @@
+@use '../utilities/variables' as c;
+@use '../utilities/mixins' as mx;
+
+$colors: (
+  'work': c.$work-card-underlay,
+  'play': c.$play-card-underlay,
+  'study': c.$study-card-underlay,
+  'exercise': c.$exercise-card-underlay,
+  'social': c.$social-card-underlay,
+  'selfcare': c.$self-care-card-underlay,
+);
+
+@each $name, $value in $colors {
+  .card--#{$name} .card__icon {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    background: url(../assets/icon-#{$name}.svg) repeat-y #{$value};
+    background-size: 20%;
+    background-position: 93% -6px;
+    top: -30%;
+    z-index: -1;
+    border-radius: 12px;
+    @include mx.point('sm') {
+      background-size: 30%;
+      background-position: 93% 0;
+    }
+  }
+}
+
+.card {
+  position: relative;
+  background-color: c.$card-component-background;
+  border-radius: 12px;
+  grid-template-columns: 30% auto;
+  @include mx.point('sm') {
+    height: 120px;
+  }
+
+  &__info {
+    padding: 1rem;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__name {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  &__img {
+    width: 20px;
+    object-fit: contain;
+  }
+
+  &__name,
+  &__subtitle {
+    margin: 0;
+  }
+
+  &__title {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 300;
+    @include mx.point('sm') {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include mx.point('sm') {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  &__subtitle {
+    color: c.$color-secondary-text;
+    @include mx.point('sm') {
+      font-size: 0.7rem;
+    }
+  }
+}

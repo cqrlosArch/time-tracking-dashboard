@@ -1,0 +1,12 @@
+@use 'functions' as f;
+
+@mixin point($point) {
+  @media screen and (min-width: f.breakpoint($point)) {
+    @content;
+  }
+}
+
+@mixin card-underlay($background-image, $background-color) {
+  background-image: url($background-image);
+  background-color: $background-color;
+}
